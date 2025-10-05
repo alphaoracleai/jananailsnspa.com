@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JANA NAILS & SPA | Burlington, WA</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; }
+    h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; }
+
+    /* Fade-in animation */
+    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Back-to-top button */
+    #back-to-top { 
+      position: fixed; bottom: 30px; right: 30px; background-color: #ec4899; 
+      color: white; padding: 0.75rem 1rem; border-radius: 9999px; 
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2); cursor: pointer; display: none; 
+      z-index: 100; transition: background 0.3s ease;
+    }
+    #back-to-top:hover { background-color: #db2777; }
+
+    /* Ensure parallax works on smaller screens */
+    @media (max-width: 768px) {
+      .bg-fixed { background-attachment: scroll; }
+    }
+
+    /* Custom gradient */
+    .gradient-bg {
+      background: linear-gradient(135deg, #f9a8d4 0%, #fbcfe8 100%);
+    }
+    
+    /* Form validation styles */
+    .form-error {
+      color: #e11d48;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+    
+    .form-success {
+      background-color: #d1fae5;
+      border: 1px solid #10b981;
+      color: #065f46;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-pink-50 text-gray-800">
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl sm:text-3xl font-bold text-pink-600 tracking-wide">JANA NAILS & SPA</h1>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-10 font-medium text-gray-700">
+        <li><a href="#about" class="hover:text-pink-500 transition">About</a></li>
+        <li><a href="#services" class="hover:text-pink-500 transition">Services</a></li>
+        <li><a href="#testimonials" class="hover:text-pink-500 transition">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-pink-600 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+            d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <ul class="flex flex-col space-y-2 p-4 font-medium">
+        <li><a href="#about" class="hover:text-pink-500 transition">About</a></li>
+        <li><a href="#services" class="hover:text-pink-500 transition">Services</a></li>
+        <li><a href="#testimonials" class="hover:text-pink-500 transition">Testimonials</a></li>
+        <li><a href="#contact" class="hover:text-pink-500 transition">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Parallax -->
+  <section class="relative bg-[url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center bg-fixed text-white text-center py-32 px-4 fade-in rounded-b-3xl">
+    <div class="absolute inset-0 bg-pink-500/50"></div> <!-- overlay -->
+    <div class="relative z-10">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">Welcome to JANA NAILS & SPA</h2>
+      <p class="text-lg sm:text-xl max-w-2xl mx-auto mb-8">Relax, rejuvenate, and feel beautiful with our expert nail and spa services in Burlington, WA</p>
+      <a href="#contact" class="inline-block bg-white text-pink-600 font-semibold py-3 px-8 rounded-full hover:bg-pink-100 transition duration-300 shadow-lg">
+        Book an Appointment
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="max-w-5xl mx-auto py-20 px-4 fade-in">
+    <h2 class="text-3xl text-pink-600 font-bold text-center mb-8">About Us</h2>
+    <p class="text-center text-gray-700 max-w-3xl mx-auto mb-8">
+      At JANA NAILS & SPA, we provide high-quality nail and spa services in a relaxing and welcoming environment. Since 2013, our team has been dedicated to helping clients feel pampered and refreshed.
+    </p>
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
+        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-award text-pink-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Quality Service</h3>
+        <p class="text-gray-600">We use premium products and follow strict hygiene standards for your safety and satisfaction.</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
+        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-users text-pink-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Expert Team</h3>
+        <p class="text-gray-600">Our skilled technicians are trained in the latest techniques and trends in nail and spa care.</p>
+      </div>
+      <div class="text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition">
+        <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <i class="fas fa-spa text-pink-600 text-2xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-gray-800 mb-2">Relaxing Environment</h3>
+        <p class="text-gray-600">Enjoy our calming atmosphere designed to help you unwind and escape from daily stress.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="gradient-bg py-20 px-4 fade-in">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl text-pink-700 font-bold text-center mb-12">Our Services</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-hand-sparkles text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Manicures</h3>
+          </div>
+          <p class="text-gray-600 mb-4">From classic to gel, our manicures will leave your hands looking beautiful.</p>
+          <p class="text-pink-600 font-semibold">Starting at $25</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-socks text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Pedicures</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Relaxing pedicures to pamper your feet and leave them feeling refreshed.</p>
+          <p class="text-pink-600 font-semibold">Starting at $35</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-gem text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Nail Art</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Creative designs and nail art to express your unique style.</p>
+          <p class="text-pink-600 font-semibold">Starting at $10</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-spa text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Spa Treatments</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Indulge in our luxurious spa treatments for hands and feet.</p>
+          <p class="text-pink-600 font-semibold">Starting at $45</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-fill-drip text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Acrylics & Gels</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Professional application of acrylic and gel extensions.</p>
+          <p class="text-pink-600 font-semibold">Starting at $50</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center mr-4">
+              <i class="fas fa-child text-pink-600"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800">Kids Services</h3>
+          </div>
+          <p class="text-gray-600 mb-4">Special treatments designed for our younger clients.</p>
+          <p class="text-pink-600 font-semibold">Starting at $20</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section with Parallax -->
+  <section id="testimonials" class="relative bg-[url('https://images.unsplash.com/photo-1588776814546-9534d2a65e8f?auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center bg-fixed py-20 px-4 fade-in">
+    <div class="absolute inset-0 bg-pink-100/80"></div>
+    <div class="relative z-10 max-w-5xl mx-auto">
+      <h2 class="text-3xl text-pink-600 font-bold text-center mb-12">What Our Clients Say</h2>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="mb-4">"Absolutely love this spa! The staff is friendly and the atmosphere is so relaxing. My nails have never looked better."</p>
+            <p class="font-bold text-pink-600">– Sarah M.</p>
+          </div>
+          <div class="swiper-slide bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="mb-4">"Fantastic experience! The services are professional and the attention to detail is amazing."</p>
+            <p class="font-bold text-pink-600">– Emily R.</p>
+          </div>
+          <div class="swiper-slide bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="mb-4">"A true hidden gem! I always leave feeling pampered and happy. Highly recommend Jana Nails & Spa."</p>
+            <p class="font-bold text-pink-600">– Jessica L.</p>
+          </div>
+          <div class="swiper-slide bg-white p-6 rounded-2xl shadow hover:shadow-lg transition">
+            <div class="flex items-center mb-4">
+              <div class="text-yellow-400 mr-2">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+            <p class="mb-4">"The best nail salon in Burlington! Their attention to detail and customer service is unmatched."</p>
+            <p class="font-bold text-pink-600">– Michelle T.</p>
+          </div>
+        </div>
+        <div class="swiper-pagination mt-6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map & Contact Section -->
+  <section id="contact" class="max-w-5xl mx-auto py-20 px-4 fade-in">
+    <h2 class="text-3xl text-pink-600 font-bold text-center mb-12">Visit Us / Contact</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+      <div>
+        <div class="rounded-2xl overflow-hidden shadow-lg mb-6">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2683.769114255842!2d-122.3418155844177!3d48.471111979247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d55d1b3e14ff%3A0x3a6aeb7b7c3e11c!2s1030%20S%20Burlington%20Blvd%2C%20Burlington%2C%20WA%2098233!5e0!3m2!1sen!2sus!4v1696500000000!5m2!1sen!2sus"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        
+        <div class="bg-white p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
+          <div class="space-y-3">
+            <div class="flex items-center">
+              <i class="fas fa-map-marker-alt text-pink-600 mr-3"></i>
+              <p>1030 S Burlington Blvd, Burlington, WA 98233</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-phone text-pink-600 mr-3"></i>
+              <p>(360) 555-1234</p>
+            </div>
+            <div class="flex items-center">
+              <i class="fas fa-envelope text-pink-600 mr-3"></i>
+              <p>info@janalnails.com</p>
+            </div>
+          </div>
+          
+          <h3 class="text-xl font-bold text-gray-800 mt-6 mb-4">Business Hours</h3>
+          <div class="space-y-2">
+            <div class="flex justify-between">
+              <span>Monday - Friday</span>
+              <span>9:00 AM - 7:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Saturday</span>
+              <span>9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Sunday</span>
+              <span>10:00 AM - 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-white p-8 rounded-2xl shadow-lg">
+        <h3 class="text-xl font-bold text-gray-800 mb-4">Send Us a Message</h3>
+        <div id="form-success" class="form-success">
+          Thank you for your message! <br> We will get back to you as soon as possible.
+        </div>
+        <form id="contact-form">
+          <div class="mb-4">
+            <input type="text" id="name" placeholder="Your Name" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+            <div id="name-error" class="form-error">Please enter your name</div>
+          </div>
+          <div class="mb-4">
+            <input type="email" id="email" placeholder="Your Email" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+            <div id="email-error" class="form-error">Please enter a valid email address</div>
+          </div>
+          <div class="mb-4">
+            <input type="tel" id="phone" placeholder="Your Phone (Optional)" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+          </div>
+          <div class="mb-4">
+            <textarea id="message" rows="5" placeholder="Your Message" class="w-full p-4 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required></textarea>
+            <div id="message-error" class="form-error">Please enter your message</div>
+          </div>
+          <button type="submit" class="w-full bg-pink-600 text-white p-4 rounded-lg font-semibold hover:bg-pink-500 transition">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-8 text-center text-gray-600 fade-in border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="flex justify-center space-x-6 mb-6">
+        <a href="#" class="text-pink-600 hover:text-pink-500 transition">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="#" class="text-pink-600 hover:text-pink-500 transition">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="#" class="text-pink-600 hover:text-pink-500 transition">
+          <i class="fab fa-tiktok text-xl"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 JANA NAILS & SPA. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <div id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    // Initialize Swiper
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      pagination: { el: ".swiper-pagination", clickable: true },
+      slidesPerView: 1,
+      spaceBetween: 20,
+      breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
+      autoplay: { delay: 5000, disableOnInteraction: false },
+    });
+
+    // Mobile menu toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Fade-in sections
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+    }, appearOptions);
+    faders.forEach(fader => appearOnScroll.observe(fader));
+
+    // Back-to-top button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => backToTop.style.display = (window.scrollY > 300 ? 'block' : 'none'));
+
+    // Form validation and submission
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Reset errors
+      document.querySelectorAll('.form-error').forEach(error => {
+        error.style.display = 'none';
+      });
+      
+      let isValid = true;
+      
+      // Validate name
+      const name = document.getElementById('name');
+      if (!name.value.trim()) {
+        document.getElementById('name-error').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate email
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailRegex.test(email.value)) {
+        document.getElementById('email-error').style.display = 'block';
+        isValid = false;
+      }
+      
+      // Validate message
+      const message = document.getElementById('message');
+      if (!message.value.trim()) {
+        document.getElementById('message-error').style.display = 'block';
+        isValid = false;
+      }
+      
+      if (isValid) {
+        // In a real application, you would send the form data to a server here
+        // For demonstration, we'll just show the success message
+        formSuccess.style.display = 'block';
+        contactForm.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          formSuccess.style.display = 'none';
+        }, 5000);
+      }
+    });
+  </script>
+
+</body>
+</html>
